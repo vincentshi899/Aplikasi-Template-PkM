@@ -1,4 +1,3 @@
-/* ================= GLOBAL & BACKGROUND ================= */
 * { 
     margin: 0; 
     padding: 0; 
@@ -15,7 +14,6 @@ body {
     flex-direction: column;
 }
 
-/* ================= NAVBAR ================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -29,10 +27,12 @@ body {
     z-index: 1000;
 }
 
+/* LOGO & TITLE */
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
 .logo { height: 40px; }
 .brand-title { color: white; font-weight: 700; font-size: 20px; }
 
+/* MENU TENGAH */
 .nav-menu {
     display: flex;
     gap: 35px;
@@ -43,29 +43,44 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #ffffff; 
+    color: #ffffff;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    padding: 8px 15px;
+    gap: 10px;
+    transition: 0.3s ease;
 }
 
-.nav-link:hover { color: #e57632; }
+.nav-link:hover {
+    color: #e57632;
+}
 
-.nav-right { display: flex; align-items: center; gap: 20px; }
-.user-info { text-align: right; }
-#userFullname { display: block; font-size: 14px; font-weight: 600; color: white; }
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-info {
+    text-align: right;
+    line-height: 1.3;
+}
+
+#userFullname {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+}
 
 .role-badge {
-    font-size: 10px;
     background: #e57632;
-    padding: 2px 12px;
-    border-radius: 20px;
     color: white;
+    padding: 1px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    display: inline-block;
 }
-
 .logout-btn {
     background: white;
     border: none;
@@ -80,7 +95,7 @@ body {
     transition: 0.3s;
 }
 
-/* ================= SPLIT LAYOUT ================= */
+/* Bagi layout menjadi dua kolom: kiri untuk form, kanan untuk preview */
 .split-container {
     display: grid;
     grid-template-columns: 420px 1fr;
@@ -147,17 +162,13 @@ input:focus, textarea:focus, select:focus {
     font-weight: 600;
     transition: 0.3s;
 }
-
-/* ================= RIGHT PANEL (Preview) ================= */
 /* ================= RIGHT PANEL (Preview) ================= */
 .right-panel {
     background: #334155;
     padding: 40px;
     overflow-y: auto;
-    /* display: flex;  <-- HAPUS INI (Penyebab konten hilang saat scroll) */
-    /* justify-content: center; <-- HAPUS INI */
-    display: block; /* Ganti ke block */
-    text-align: center; /* Agar kertas tetap di tengah */
+    display: block; 
+    text-align: center; 
 }
 
 .paper-preview {
@@ -167,8 +178,7 @@ input:focus, textarea:focus, select:focus {
     padding: 25mm 25mm 25mm 30mm; /* Padding default */
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     color: black;
-    
-    /* TAMBAHAN AGAR POSISI AMAN */
+
     display: inline-block; /* Agar merespon text-align center parent */
     text-align: left;      /* Reset agar teks dalam surat tetap rata kiri */
     margin: 0 auto;        /* Menjaga posisi center */
@@ -196,41 +206,35 @@ input:focus, textarea:focus, select:focus {
     line-height: 1.5; 
 }
 
-/* --- PERBAIKAN TABEL BIODATA --- */
+
 .biodata-table { width: 100%; margin: 10px 0 20px 0; border-collapse: collapse; }
 .biodata-table td { 
-    vertical-align: top; /* Pastikan teks mulai dari atas */
+    vertical-align: top; 
     padding-bottom: 5px; 
 }
 .label-col { 
-    width: 260px; /* DIPERLEBAR: Agar 'Nama Dosen Pendamping' muat */
+    width: 260px; 
 }
 .colon-col { width: 20px; text-align: center; }
 
-/* --- PERBAIKAN POIN LIST --- */
 .poin-list { margin-left: 20px; padding-left: 20px; }
 .poin-list li { margin-bottom: 10px; text-align: justify; }
 
-/* --- PERBAIKAN SUB-LIST (a, b, c) --- */
-/* Menggunakan Flexbox agar kolom label konsisten */
-/* --- UPDATE BAGIAN INI DI CSS --- */
 
-/* Wrapper untuk poin a, b, c agar "agak masukan" */
 .sub-point-container {
-    margin-left: 20px; /* Geser ke kanan (indentasi) */
+    margin-left: 20px; 
     margin-top: 5px;
 }
 
-/* Style khusus untuk baris poin a, b, c */
 .sub-point { 
     display: flex; 
-    align-items: flex-start; /* Rata atas */
+    align-items: flex-start;
     margin-bottom: 5px;
 }
 
-/* Label diperlebar agar poin C tidak turun/berantakan */
+
 .sub-label { 
-    width: 290px; /* DIPERLEBAR: Agar 'Tahun dan Tempat Pelaksanaan' muat */
+    width: 290px; 
     flex-shrink: 0;
 }
 
@@ -243,37 +247,36 @@ input:focus, textarea:focus, select:focus {
 .sub-value { 
     flex-grow: 1; 
     text-align: justify;
-    border-bottom: 1px dotted #999; /* Garis titik-titik biar rapi */
+    border-bottom: 1px dotted #999; 
     min-height: 20px;
 }
 
-/* Khusus Poin A (Karena teksnya panjang & beda format) */
 .point-a-text {
     text-align: justify;
     margin-bottom: 5px;
     line-height: 1.5;
-    display: block; /* Agar memanjang ke samping */
+    display: block;
 }
 
-/* --- PERBAIKAN TANDA TANGAN --- */
+
 .signature-section { 
     margin-top: 50px; 
     display: flex; 
     justify-content: flex-end; 
-    padding-right: 10px; /* Sedikit padding dari kanan */
+    padding-right: 10px; 
 }
 
 .signature-box { 
-    text-align: center; /* AGAR SEMUA TEKS RATA TENGAH (CENTER) */
+    text-align: center;
     width: 300px; 
 }
 
-/* Teks Kuning */
+
 .tt-warning {
-    color: #f59e0b; /* Kuning Oranye */
+    color: #f59e0b; 
     font-weight: bold;
     font-size: 12pt;
-    margin: 30px 0; /* Spasi pengganti tanda tangan */
+    margin: 30px 0; 
     display: block;
 }
 
@@ -283,12 +286,12 @@ input:focus, textarea:focus, select:focus {
     margin-bottom: 4px;
 }
 
-/* ================= PRINT SETTINGS ================= */
+/* Bagian Print */
 @media print {
-    /* 1. Sembunyikan elemen web yang tidak perlu */
+    /* 1. Sembunyikan Elemen Non-Print */
     .navbar, .left-panel, .btn-download { display: none !important; }
     
-    /* 2. Reset Body dan Layout untuk Print */
+    /* 2. Atur Ulang Layout untuk Print */
     body, html { 
         background: white !important; 
         margin: 0; 
@@ -303,19 +306,17 @@ input:focus, textarea:focus, select:focus {
         display: block;
     }
     
-    /* 3. Render kertas agar sama persis ukurannya seperti di web */
+
     .paper-preview { 
         box-shadow: none !important; 
         margin: 0 !important; 
         width: 210mm !important; 
-        /* Jangan ubah padding ke 0 di sini, agar padding dari JavaScript tetap berfungsi! */
         
-        /* Opsi agar warna background/kuning ikut di-print (Khusus Chrome) */
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
     
-    /* 4. Hapus margin sistem (Ini yang menghilangkan teks url & tgl di pinggir kertas) */
+    
     @page { 
         size: A4; 
         margin: 0; 

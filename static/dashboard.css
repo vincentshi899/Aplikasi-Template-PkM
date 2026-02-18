@@ -1,28 +1,24 @@
-/* ================= RESET & FONT ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif; /* Menggunakan Poppins agar lebih modern */
+  font-family: 'Poppins', sans-serif; 
 }
 
 body {
-  /* BACKGROUND MEWAH: Biru gelap gradasi sesuai foto 1 & 2 */
   background: radial-gradient(circle at top right, #2d3e5b, #1a253a);
   color: #ffffff;
   min-height: 100vh;
 }
 
-/* ================= NAVBAR (LOGIKA VINCENT) ================= */
-/* NAVBAR UTAMA */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
-    background: #1e293b; /* Biru tua pekat sesuai foto */
+    background: #1e293b;
     height: 80px;
-    border-bottom: 2px solid #e57632; /* Garis oranye bawah */
+    border-bottom: 2px solid #e57632;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -44,7 +40,7 @@ body {
 
 .nav-link {
     text-decoration: none;
-    color: #ffffff; /* Teks putih standar */
+    color: #ffffff;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -52,12 +48,10 @@ body {
     transition: 0.3s ease;
 }
 
-/* Efek Hover: Berubah Oranye */
 .nav-link:hover {
     color: #e57632;
 }
 
-/* USER INFO POJOK KANAN */
 .nav-right {
     display: flex;
     align-items: center;
@@ -65,7 +59,7 @@ body {
 }
 
 .user-info {
-    text-align: right; /* Nama rata kanan */
+    text-align: right;
     line-height: 1.3;
 }
 
@@ -76,7 +70,7 @@ body {
 }
 
 .role-badge {
-    background: #e57632; /* Badge Oranye Solid */
+    background: #e57632;
     color: white;
     padding: 1px 12px;
     border-radius: 20px;
@@ -104,7 +98,7 @@ body {
     background: #f1f5f9;
 }
 
-/* ================= MAIN CONTENT (GLASSMORPHISM) ================= */
+/*Main Content*/
 .container {
   padding: 60px 80px;
 }
@@ -113,7 +107,7 @@ body {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 5px;
-  color: #ffffff; /* Putih agar terlihat di bg gelap */
+  color: #ffffff;
 }
 
 .welcome-section p {
@@ -129,7 +123,6 @@ body {
 }
 
 .pkm-card {
-  /* EFEK KACA: Transparan dengan Blur sesuai foto 1 & 2 */
   background: rgba(255, 255, 255, 0.05); 
   backdrop-filter: blur(15px);
   padding: 40px 30px;
