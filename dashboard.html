@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Otomatisasi PKM</title>
+
+    <link rel="stylesheet" href="/static/dashboard.css" />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body data-page="dashboard">
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="/dashboard" class="brand">
+          <img src="/assets/logo.png" alt="Logo" class="logo" />
+          <span class="brand-title">Otomatisasi PKM</span>
+        </a>
+      </div>
+
+      <div class="nav-menu">
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#" class="nav-link"><i class="fas fa-history"></i> History</a>
+            <a href="profile.html" class="nav-link"><i class="fas fa-user"></i>Profile</a>
+        </div>
+
+      <div class="nav-right">
+        <a href="profile.html" class="profile-link">
+          <div class="user-info">
+            <span id="userFullname">Nama Lengkap</span>
+            <span id="userRole" class="role-badge">Mahasiswa</span>
+          </div>
+        </a>
+
+        <button id="logoutBtn" class="logout-btn" type="button" title="Logout">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="welcome-section">
+        <h1>
+          Selamat Datang,
+          <span id="welcomeName"></span>
+        </h1>
+        <p>Silakan pilih jenis PKM yang ingin Anda buat</p>
+      </section>
+
+      <section class="pkm-grid">
+        <article class="pkm-card" data-route="/pkm/ai">
+          <i class="fa-regular fa-file-lines pkm-icon"></i>
+          <h3>PKM-AI</h3>
+          <p>Artikel Ilmiah berbasis data sekunder</p>
+          <a href="template-PKM-AI.html" class="pkm-btn">Buat Sekarang</a>
+        </article>
+
+        <article class="pkm-card" data-route="/pkm/gft">
+          <i class="fa-solid fa-lightbulb pkm-icon"></i>
+          <h3>PKM-GFT</h3>
+          <p>Gagasan Futuristik Tertulis</p>
+          <a href="template-PKM-GFT.html" class="pkm-btn">Buat Sekarang</a>
+        </article>
+
+        <article class="pkm-card" data-route="/pkm/pm">
+          <i class="fa-solid fa-hand-holding-heart pkm-icon"></i>
+          <h3>PKM-PM</h3>
+          <p>Pengabdian kepada Masyarakat</p>
+          <a href="template-PKM-PM.html" class="pkm-btn">Buat Sekarang</a>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

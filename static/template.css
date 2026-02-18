@@ -1,0 +1,323 @@
+/* ================= GLOBAL & BACKGROUND ================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
+}
+
+body {
+    background: radial-gradient(circle at top right, #2d3e5b, #1a253a);
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: #1e293b;
+    height: 80px;
+    border-bottom: 2px solid #e57632;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo { height: 40px; }
+.brand-title { color: white; font-weight: 700; font-size: 20px; }
+
+.nav-menu {
+    display: flex;
+    gap: 35px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff; 
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+}
+
+.nav-link:hover { color: #e57632; }
+
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.user-info { text-align: right; }
+#userFullname { display: block; font-size: 14px; font-weight: 600; color: white; }
+
+.role-badge {
+    font-size: 10px;
+    background: #e57632;
+    padding: 2px 12px;
+    border-radius: 20px;
+    color: white;
+}
+
+.logout-btn {
+    background: white;
+    border: none;
+    color: #1e293b;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* ================= SPLIT LAYOUT ================= */
+.split-container {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    height: calc(100vh - 80px);
+}
+
+/* LEFT PANEL (Editor) */
+.left-panel {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 25px;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.panel-header h3 { color: #e57632; margin-bottom: 5px; font-size: 1.2rem; }
+.panel-header p { color: rgba(255, 255, 255, 0.5); font-size: 13px; margin-bottom: 25px; }
+
+.section-title { 
+    font-size: 11px; 
+    font-weight: 700; 
+    color: #64748b; 
+    margin: 25px 0 10px; 
+    text-transform: uppercase; 
+}
+
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; color: #cbd5e1; font-size: 13px; margin-bottom: 8px; font-weight: 500; }
+
+input, textarea, select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 12px 15px;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus { 
+    border-color: #e57632; 
+    outline: none; 
+    background: rgba(0, 0, 0, 0.3); 
+}
+
+.input-readonly { color: #64748b; cursor: not-allowed; }
+
+.btn-download {
+    background: #475569;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* ================= RIGHT PANEL (Preview) ================= */
+/* ================= RIGHT PANEL (Preview) ================= */
+.right-panel {
+    background: #334155;
+    padding: 40px;
+    overflow-y: auto;
+    /* display: flex;  <-- HAPUS INI (Penyebab konten hilang saat scroll) */
+    /* justify-content: center; <-- HAPUS INI */
+    display: block; /* Ganti ke block */
+    text-align: center; /* Agar kertas tetap di tengah */
+}
+
+.paper-preview {
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 25mm 25mm 25mm 30mm; /* Padding default */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    color: black;
+    
+    /* TAMBAHAN AGAR POSISI AMAN */
+    display: inline-block; /* Agar merespon text-align center parent */
+    text-align: left;      /* Reset agar teks dalam surat tetap rata kiri */
+    margin: 0 auto;        /* Menjaga posisi center */
+}
+
+.surat-title { 
+    font-family: 'Times New Roman', serif; 
+    font-size: 14pt; 
+    font-weight: bold; 
+    text-align: center; 
+    margin-bottom: 5px; 
+    text-transform: uppercase;
+}
+
+.title-line {
+    border-bottom: 3px solid black; 
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.surat-body { 
+    font-family: 'Times New Roman', serif; 
+    font-size: 12pt; 
+    line-height: 1.5; 
+}
+
+/* --- PERBAIKAN TABEL BIODATA --- */
+.biodata-table { width: 100%; margin: 10px 0 20px 0; border-collapse: collapse; }
+.biodata-table td { 
+    vertical-align: top; /* Pastikan teks mulai dari atas */
+    padding-bottom: 5px; 
+}
+.label-col { 
+    width: 260px; /* DIPERLEBAR: Agar 'Nama Dosen Pendamping' muat */
+}
+.colon-col { width: 20px; text-align: center; }
+
+/* --- PERBAIKAN POIN LIST --- */
+.poin-list { margin-left: 20px; padding-left: 20px; }
+.poin-list li { margin-bottom: 10px; text-align: justify; }
+
+/* --- PERBAIKAN SUB-LIST (a, b, c) --- */
+/* Menggunakan Flexbox agar kolom label konsisten */
+/* --- UPDATE BAGIAN INI DI CSS --- */
+
+/* Wrapper untuk poin a, b, c agar "agak masukan" */
+.sub-point-container {
+    margin-left: 20px; /* Geser ke kanan (indentasi) */
+    margin-top: 5px;
+}
+
+/* Style khusus untuk baris poin a, b, c */
+.sub-point { 
+    display: flex; 
+    align-items: flex-start; /* Rata atas */
+    margin-bottom: 5px;
+}
+
+/* Label diperlebar agar poin C tidak turun/berantakan */
+.sub-label { 
+    width: 290px; /* DIPERLEBAR: Agar 'Tahun dan Tempat Pelaksanaan' muat */
+    flex-shrink: 0;
+}
+
+.sub-colon { 
+    width: 20px; 
+    text-align: center; 
+    flex-shrink: 0; 
+}
+
+.sub-value { 
+    flex-grow: 1; 
+    text-align: justify;
+    border-bottom: 1px dotted #999; /* Garis titik-titik biar rapi */
+    min-height: 20px;
+}
+
+/* Khusus Poin A (Karena teksnya panjang & beda format) */
+.point-a-text {
+    text-align: justify;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    display: block; /* Agar memanjang ke samping */
+}
+
+/* --- PERBAIKAN TANDA TANGAN --- */
+.signature-section { 
+    margin-top: 50px; 
+    display: flex; 
+    justify-content: flex-end; 
+    padding-right: 10px; /* Sedikit padding dari kanan */
+}
+
+.signature-box { 
+    text-align: center; /* AGAR SEMUA TEKS RATA TENGAH (CENTER) */
+    width: 300px; 
+}
+
+/* Teks Kuning */
+.tt-warning {
+    color: #f59e0b; /* Kuning Oranye */
+    font-weight: bold;
+    font-size: 12pt;
+    margin: 30px 0; /* Spasi pengganti tanda tangan */
+    display: block;
+}
+
+.tt-name {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 4px;
+}
+
+/* ================= PRINT SETTINGS ================= */
+@media print {
+    /* 1. Sembunyikan elemen web yang tidak perlu */
+    .navbar, .left-panel, .btn-download { display: none !important; }
+    
+    /* 2. Reset Body dan Layout untuk Print */
+    body, html { 
+        background: white !important; 
+        margin: 0; 
+        padding: 0;
+        height: auto;
+    }
+    .split-container { display: block; height: auto; }
+    .right-panel { 
+        width: 100%; 
+        padding: 0; 
+        background: white; 
+        display: block;
+    }
+    
+    /* 3. Render kertas agar sama persis ukurannya seperti di web */
+    .paper-preview { 
+        box-shadow: none !important; 
+        margin: 0 !important; 
+        width: 210mm !important; 
+        /* Jangan ubah padding ke 0 di sini, agar padding dari JavaScript tetap berfungsi! */
+        
+        /* Opsi agar warna background/kuning ikut di-print (Khusus Chrome) */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    /* 4. Hapus margin sistem (Ini yang menghilangkan teks url & tgl di pinggir kertas) */
+    @page { 
+        size: A4; 
+        margin: 0; 
+    }
+}

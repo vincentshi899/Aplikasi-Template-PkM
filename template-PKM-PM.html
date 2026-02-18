@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Pernyataan PKM-PM</title>
+    
+    <link rel="stylesheet" href="static/template.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Styling Kotak Meterai (Sama dengan PKM-GFT) */
+        .meterai-box {
+            border: 1px solid #000; /* Garis Kotak Hitam */
+            width: 180px;
+            padding: 10px;
+            margin: 15px auto;      /* Tengah Horizontal */
+            text-align: center;
+            font-size: 11px;
+            display: block;
+        }
+
+        /* Teks Kuning */
+        .tt-warning {
+            color: #f59e0b; /* Kuning Oranye */
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+            font-size: 11px;
+        }
+
+        /* Styling Area Tanda Tangan */
+        .signature-section { 
+            margin-top: 40px; 
+            display: flex; 
+            justify-content: flex-end; 
+            padding-right: 0;
+        }
+        
+        .signature-box { 
+            text-align: center; 
+            width: 300px; /* Lebar area tanda tangan */
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="/dashboard" class="brand">
+                <img src="/assets/logo.png" alt="Logo" class="logo" />
+                <span class="brand-title">Otomatisasi PKM</span>
+            </a>
+        </div>
+
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#" class="nav-link"><i class="fas fa-history"></i> History</a>
+            <a href="profile.html" class="nav-link"><i class="fas fa-user"></i>Profile</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="user-info">
+                <span id="userFullname">Nama Lengkap</span>
+                <span id="userRole" class="role-badge">Mahasiswa</span>
+            </div>
+            <button id="logoutBtn" class="logout-btn" type="button">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="split-container">
+        
+        <div class="left-panel">
+            <div class="form-card">
+                <div class="panel-header">
+                    <h3><i class="fas fa-users-cog"></i> Edit PKM-PM</h3>
+                    <p>Lengkapi data di bawah untuk review surat.</p>
+                </div>
+
+                <form class="editor-form">
+                    <div class="section-title" style="margin-top: 0;">Pengaturan Kertas</div>
+                    <div class="form-group">
+                        <label>Pilih Margin (Kiri - Atas - Kanan - Bawah)</label>
+                        <select id="in-margin">
+                            <option value="4333">4 - 3 - 3 - 3 cm (Standar PKM)</option>
+                            <option value="4433">4 - 4 - 3 - 3 cm (Alternatif)</option>
+                        </select>
+                    </div>
+
+                    <div class="section-title">Data Institusi</div>
+                    <div class="form-group">
+                        <label>Program Studi <span style="color:red">*</span></label>
+                        <input type="text" id="in-prodi" value="Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label>Perguruan Tinggi</label>
+                        <input type="text" id="in-kampus" value="Universitas Bina Nusantara" class="input-readonly" readonly>
+                    </div>
+
+                    <div class="section-title">Identitas Ketua Tim</div>
+                    <div class="form-group">
+                        <label>Nama Ketua Tim <span style="color:red">*</span></label>
+                        <input type="text" id="in-nama" placeholder="Masukan Nama Lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label>NIM <span style="color:red">*</span></label>
+                        <input type="text" id="in-nim" placeholder="Masukan NIM">
+                    </div>
+
+                    <div class="section-title">Detail Proposal</div>
+                    <div class="form-group">
+                        <label>Nama Dosen Pendamping</label>
+                        <input type="text" id="in-dosen" placeholder="Nama Lengkap & Gelar">
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Proposal PKM <span style="color:red">*</span></label>
+                        <textarea id="in-judul" rows="4" placeholder="Judul kegiatan pengabdian..."></textarea>
+                    </div>
+
+                    <div class="section-title" style="margin-top: 20px;">Tanggal Surat</div>
+                    <div class="form-group">
+                        <label>Kota & Tanggal</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="in-kota" value="Jakarta" style="flex: 1;">
+                            <input type="date" id="in-tanggal" style="flex: 1.5;">
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button type="button" class="btn-download" onclick="window.print()">
+                            <i class="fas fa-file-pdf"></i> PDF
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="paper-preview">
+                
+                <div class="surat-title">
+                    SURAT PERNYATAAN KETUA TIM PENGUSUL
+                    <div style="border-bottom: 3px solid black; margin-top: 2px;"></div>
+                </div>
+
+                <div class="surat-body">
+                    <p>Yang bertanda tangan di bawah ini :</p>
+                    
+                    <table class="biodata-table">
+                        <tr>
+                            <td class="label-col">Nama Ketua Tim</td>
+                            <td class="colon-col">:</td>
+                            <td id="out-nama">[Nama Ketua Tim]</td>
+                        </tr>
+                        <tr>
+                            <td>Nomor Induk Mahasiswa</td>
+                            <td>:</td>
+                            <td id="out-nim">[NIM]</td>
+                        </tr>
+                        <tr>
+                            <td>Program Studi</td>
+                            <td>:</td>
+                            <td id="out-prodi">Computer Science</td>
+                        </tr>
+                        <tr>
+                            <td>Nama Dosen Pendamping</td>
+                            <td>:</td>
+                            <td id="out-dosen">[Nama Dosen]</td>
+                        </tr>
+                        <tr>
+                            <td>Perguruan Tinggi</td>
+                            <td>:</td>
+                            <td id="out-kampus">Universitas Bina Nusantara</td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: top;">Judul Proposal PKM</td>
+                            <td style="vertical-align: top;">:</td>
+                            <td id="out-judul" style="font-weight: bold;">[Judul Proposal]</td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <p>
+                        Dengan ini menyatakan bahwa proposal <strong>PKM-PM</strong> saya dengan judul yang diusulkan untuk tahun anggaran 2025 adalah:
+                    </p>
+                    
+                    <ol class="poin-list" style="margin-top: 10px;">
+                        <li style="margin-bottom: 8px;">Asli karya mahasiswa dan belum pernah dibiayai oleh lembaga atau sumber dana lain.</li>
+                        <li style="margin-bottom: 8px;">Penggunaan kecerdasan buatan/ <em>artificial intelligence</em> (AI) mengikuti syarat dan ketentuan yang berlaku sesuai dengan Panduan GenAI Belmawa (<a href="https://s.id/PanduanGenAI" style="color: blue; text-decoration: underline;">https://s.id/PanduanGenAI</a>)</li>
+                        <li style="margin-bottom: 8px;">Kami berkomitmen untuk menjalankan kegiatan PKM secara sungguh-sungguh hingga selesai.</li>
+                    </ol>
+
+                    <p style="margin-top: 15px;">
+                        Bilamana di kemudian hari ditemukan ketidaksesuaian dengan pernyataan ini, maka saya bersedia dituntut dan diproses sesuai dengan ketentuan yang berlaku dan mengembalikan seluruh biaya yang sudah diterima ke kas negara.
+                    </p>
+                    <br>
+                    <p>Demikian pernyataan ini dibuat dengan sesungguhnya dan sebenar – benarnya.</p>
+                    <br>
+                    
+                    <div class="signature-section">
+                        <div class="signature-box">
+                            <p>
+                                <span id="out-kota">Kota</span>, 
+                                <span id="out-tanggal">Tanggal-Bulan- 2025</span>
+                            </p>
+                            <p>Yang menyatakan,</p>
+                            
+                            <div class="meterai-box">
+                                Meterai senilai Rp. 10.000<br>
+                                <span class="tt-warning">Tanda tangan (asli TT basah*)</span>
+                            </div>
+
+                            <p style="font-weight: bold; text-decoration: underline; margin-bottom: 0; margin-top: 15px;">
+                                (<span id="out-nama-ttd">Nama Lengkap</span>)
+                            </p>
+                            <p id="out-nim-ttd">NIM.</p>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. MAPPING INPUT
+        const fields = [
+            { in: 'in-nama', out: ['out-nama', 'out-nama-ttd'] },
+            { in: 'in-nim', out: ['out-nim', 'out-nim-ttd'] },
+            { in: 'in-prodi', out: ['out-prodi'] },
+            { in: 'in-dosen', out: ['out-dosen'] },
+            { in: 'in-kampus', out: ['out-kampus'] },
+            { in: 'in-judul', out: ['out-judul'] },
+            { in: 'in-kota', out: ['out-kota'] }
+        ];
+
+        fields.forEach(field => {
+            const inputEl = document.getElementById(field.in);
+            if(inputEl){
+                inputEl.addEventListener('input', function() {
+                    const val = this.value || `[${this.placeholder || 'Data'}]`;
+                    field.out.forEach(outId => {
+                        const outEl = document.getElementById(outId);
+                        if(outEl) {
+                            if(outId === 'out-nim-ttd') outEl.innerText = 'NIM. ' + this.value;
+                            else outEl.innerText = val;
+                        }
+                    });
+                });
+            }
+        });
+
+        // 2. TANGGAL OTOMATIS
+        const inTanggal = document.getElementById('in-tanggal');
+        const outTanggal = document.getElementById('out-tanggal');
+        
+        inTanggal.valueAsDate = new Date(); 
+        updateTanggal(); 
+        inTanggal.addEventListener('change', updateTanggal);
+
+        function updateTanggal() {
+            if(!inTanggal.value) return;
+            const dateVal = new Date(inTanggal.value);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            outTanggal.innerText = dateVal.toLocaleDateString('id-ID', options);
+        }
+
+        // 3. LOGIKA MARGIN
+        const inMargin = document.getElementById('in-margin');
+        const paperPreview = document.querySelector('.paper-preview');
+
+        function updateMargin() {
+            const val = inMargin.value;
+            // CSS Padding: Top Right Bottom Left
+            if(val === '4333') {
+                paperPreview.style.padding = '30mm 30mm 30mm 40mm';
+            } else if (val === '4433') {
+                paperPreview.style.padding = '40mm 30mm 30mm 40mm';
+            }
+        }
+
+        inMargin.addEventListener('change', updateMargin);
+        updateMargin();
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Saya - Portal PKM</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="dashboard.html" class="brand">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+            <span class="brand-title">Otomatisasi PKM</span>
+        </a>
+
+        <div class="nav-menu">
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#" class="nav-link"><i class="fas fa-history"></i> History</a>
+            <a href="profile.html" class="nav-link"><i class="fas fa-user"></i>Profile</a>
+        </div>
+
+        <div class="nav-right">
+            <div class="user-info">
+                <div id="userFullname" style="color: white; font-weight: 600; font-size: 14px;">Vincent</div>
+                <span class="role-badge">Mahasiswa</span>
+            </div>
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="page-header">
+            <h2>Profil Saya</h2>
+            <p>Kelola dan tinjau informasi akademis Anda</p>
+        </div>
+
+        <div class="card">
+            <div class="profile-header-card">
+                <div class="avatar-lg-wrapper">
+                    <img src="assets/profile.jpg" alt="Profile Photo" class="avatar-lg">
+                </div>
+                <div class="profile-names">
+                    <h3>Vincent</h3>
+                    <p><i class="fas fa-circle" style="color: #00c853; font-size: 8px;"></i> Mahasiswa Aktif</p>
+                    <div class="badge-role">ID: 2702279325</div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h4><i class="fas fa-info-circle"></i> Informasi Pribadi</h4>
+                <button class="btn-edit">
+                    <i class="fas fa-edit"></i> Edit Profil
+                </button>
+            </div>
+
+            <div class="info-grid">
+                <div class="form-group">
+                    <label><i class="far fa-user"></i> Nama Lengkap</label>
+                    <div class="data-box">Vincent</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-id-card"></i> NIM</label>
+                    <div class="data-box">2702279325</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="far fa-envelope"></i> Email</label>
+                    <div class="data-box">vincent078@binus.ac.id</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Nomor Telepon</label>
+                    <div class="data-box">-</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-user-tag"></i> Role</label>
+                    <div class="data-box">Mahasiswa</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-graduation-cap"></i> Jurusan</label>
+                    <div class="data-box">Computer Science</div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label><i class="fas fa-university"></i> Nama Kampus</label>
+                    <div class="data-box">Binus University</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
